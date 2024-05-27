@@ -1,5 +1,6 @@
 # Network Flow at Scale (NFaS)
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.11.0-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)
+
 This project is aim to provide a full stack sflow/netflow collecting and analysising solution that can be implemented at scale.
 
 
@@ -8,7 +9,7 @@ Kibana
 Elasticsearch or Opensearch
 Logstash
 NetFlow and SFlow dataset to simulate 
-![alt text](<../../Downloads/Untitled Diagram.drawio.svg>)
+![alt text](https://github.com/rogerxwu/nfs/blob/main/image.png)
 
 ## Build the flow generator for test
 In order to verify the data accuratcy in elasticsearch, we build a pcap file that include NetFlow V9 and SFlow data to ingest.
