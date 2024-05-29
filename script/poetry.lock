@@ -18,4 +18,4 @@ docs = ["sphinx (>=3.0.0)", "sphinx_rtd_theme (>=0.4.3)", "tox (>=3.0.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "32951abce5169d6adb47d73f8f6c412ca8174cf6f5e5931f5aafc25e684293a9"
+content-hash = "237507ddd344c0044445923997cc01d8d704c7b7c1df6600ccb7ac0431df0e21"

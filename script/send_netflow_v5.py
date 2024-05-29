@@ -45,5 +45,5 @@ payload = netflow_header + flow_record
 packet = IP(dst="127.0.0.1") / UDP(dport=2055) / Raw(load=payload)
 
 # Send the packet
-for i in range(100):
+for i in range(10):
     send(packet)
