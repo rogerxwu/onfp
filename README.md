@@ -9,7 +9,7 @@ This project is aim to provide a full stack sflow/netflow collecting and analysi
 ## System design
 This solution leverages ELK stack to ingest/index/vistualize the netflow/sflow data. In order to deploy it at scale, you should consider to use L4 load balance services like Nginx or AVI to distribute the netflow/sflow traffic to multiple LogStash nodes. We will discuss how to further scale this solution at the section 'how to scale'
 NetFlow and SFlow dataset to simulate 
-![alt text](https://github.com/rogerxwu/nfs/blob/main/image.png)
+![alt text](https://github.com/rogerxwu/nfs/blob/main/static/image.png)
 
 ### Installation
 Install docker and docker-compose
@@ -28,7 +28,7 @@ poetry run python send_sflow_v5.py
 ```
 
 ## Demo
-![alt text](https://github.com/rogerxwu/nfs/blob/main/flow.png)
+![alt text](https://github.com/rogerxwu/nfs/blob/main/static/flow.png)
 ## How SFlow pipeline works
 https://blog.sflow.com/2011/12/sflowtool.html
 
