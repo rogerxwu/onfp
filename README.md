@@ -1,4 +1,4 @@
-# Network Flow at Scale (NFaS)
+# Network Flow at Scale (NFS)
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.11.0-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)
 [![Python]]
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
