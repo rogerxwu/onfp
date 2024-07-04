@@ -1,0 +1,12 @@
+# prometheus/prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['prometheus:9090']
+  
+  - job_name: 'node_exporter_elasticsearch'
+    static_configs:
+      - targets: ['node_exporter_elasticsearch:9100']

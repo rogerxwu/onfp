@@ -11,23 +11,45 @@ services:
       - "9200:9200"
       - "9300:9300"
     networks:
-      - elk
+      - lan
+    depends_on:
+      - node_exporter_elasticsearch
 
-  logstash:
+  logstash01:
     build: 
       context: ./logstash
-    container_name: logstash
+    container_name: logstash01
     volumes:
       - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logstash/config/logstash.yaml:/usr/share/logstash/config/logstash.yaml
     environment:
       - LOG_LEVEL=info
+      - xpack.monitoring.elasticsearch.hosts=http://elasticsearch:9200
     ports:
       - "5044:5044"
       - "6343:6343/udp"
       - "2055:2055/udp"
     networks:
-      - elk
+      - lan
+    depends_on:
+      - elasticsearch
+  
+  logstash02:
+    build: 
+      context: ./logstash
+    container_name: logstash02
+    volumes:
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/config/logstash.yaml:/usr/share/logstash/config/logstash.yaml
+    environment:
+      - LOG_LEVEL=info
+      - xpack.monitoring.elasticsearch.hosts=http://elasticsearch:9200
+    ports:
+      - "5045:5044"
+      - "6344:6343/udp"
+      - "2056:2055/udp"
+    networks:
+      - lan
     depends_on:
       - elasticsearch
 
@@ -39,10 +61,65 @@ services:
     ports:
       - "5601:5601"
     networks:
-      - elk
+      - lan
     depends_on:
       - elasticsearch
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - lan
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - lan
+
+  node_exporter_elasticsearch:
+    image: prom/node-exporter:latest
+    container_name: node_exporter_elasticsearch
+    ports:
+      - "9101:9100"  # Unique external port for Node Exporter
+    networks:
+      - lan
+
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - lan
+
+#  nginx-vts-exporter:
+#    build: 
+#      context: ./nginx-vts-exporter
+#    container_name: nginx-vts-exporter
+#    environment:
+#      - NGINX_STATUS=http://nginx:8080/status/format/json
+#    ports:
+#      - "9913:9913"
+#    networks:
+#      - lan
+
+volumes:
+  grafana_data:
+  prometheus_data:
+
 networks:
-  elk:
+  lan:
     driver: bridge
