@@ -1,13 +1,13 @@
-# Network Flow at Scale (NFS)
+# Open Network Flow Platform (ONFP)
 [![Elastic Stack version](https://img.shields.io/badge/Elastic%20Stack-8.11.0-00bfb3?style=flat&logo=elastic-stack)](https://www.elastic.co/blog/category/releases)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
-This project is aim to provide a full stack sflow/netflow collecting and analysising solution that can be implemented at scale.
+This project aims to provide a full-stack Sflow/Netflow collecting and analysis solution that can be implemented at scale.
 
 
 ## System design
-This solution leverages ELK stack to ingest/index/vistualize the netflow/sflow data. In order to deploy it at scale, you should consider to use L4 load balance services like Nginx or AVI to distribute the netflow/sflow traffic to multiple LogStash nodes. We will discuss how to further scale this solution at the section 'how to scale'
-NetFlow and SFlow dataset to simulate 
+This solution leverages the ELK stack to ingest/index/visualize the netflow/sflow data. In order to deploy it at scale, you should consider to use L4 load balance services like Nginx or AVI to distribute the NetFlow/Sflow traffic to multiple LogStash nodes. We will discuss how to further scale this solution in the section 'How to scale'
+NetFlow and SFlow datasets to simulate 
 ![alt text](https://github.com/rogerxwu/nfs/blob/main/static/image.png)
 
 ### Installation
