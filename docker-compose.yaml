@@ -105,17 +105,6 @@ services:
     networks:
       - lan
 
-#  nginx-vts-exporter:
-#    build: 
-#      context: ./nginx-vts-exporter
-#    container_name: nginx-vts-exporter
-#    environment:
-#      - NGINX_STATUS=http://nginx:8080/status/format/json
-#    ports:
-#      - "9913:9913"
-#    networks:
-#      - lan
-
 volumes:
   grafana_data:
   prometheus_data:
