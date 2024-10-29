@@ -7,8 +7,11 @@ This project aims to provide a full-stack Sflow/Netflow collecting and analysis 
 
 ## System design
 This solution leverages the ELK stack to ingest/index/visualize the netflow/sflow data. In order to deploy it at scale, you should consider to use L4 load balance services like Nginx or AVI to distribute the NetFlow/Sflow traffic to multiple LogStash nodes. We will discuss how to further scale this solution in the section 'How to scale'
-NetFlow and SFlow datasets to simulate 
-![alt text](https://github.com/rogerxwu/nfs/blob/main/static/image.png)
+### High level
+![alt text](https://github.com/rogerxwu/nfs/blob/main/docs/images/high_level.png)
+### Each components
+Elasticsearch Cluster
+![alt text](https://github.com/rogerxwu/nfs/blob/main/docs/images/es_cluster.png)
 
 ### Installation
 Install docker and docker-compose
